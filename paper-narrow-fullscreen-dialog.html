@@ -1,0 +1,86 @@
+<link rel="import" href="../iron-media-query/iron-media-query.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="paper-fullscreen-dialog.html">
+
+<!--
+
+Example:
+```html
+  <paper-narrow-fullscreen-dialog id="dialog"
+    entry-animation="scale-up-animation"
+    exit-animation="scale-down-animation"
+    narrow-entry-animation="slide-from-left-animation"
+    narrow-exit-animation="slide-left-animation">
+    <h2>Dialog Title</h2>
+    <div>Dialog content</div>
+    <div class="buttons">
+      <paper-button dialog-dismiss>Cancel</paper-button>
+      <paper-button dialog-confirm>Accept</paper-button>
+    </div>
+  </paper-narrow-fullscreen-dialog>
+```
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="paper-narrow-fullscreen-dialog">
+  <template>
+
+    <template is="dom-if" if="[[narrow]]" restamp>
+      <paper-fullscreen-dialog entry-animation="[[narrowEntryAnimation]]"
+        exit-animation="[[narrowExitAnimation]]" opened="{{opened}}">
+        <content></content>
+      </paper-fullscreen-dialog>
+    </template>
+    <template is="dom-if" if="[[!narrow]]" restamp>
+      <paper-dialog entry-animation="[[entryAnimation]]"
+        exit-animation="[[exitAnimation]]" opened="{{opened}}">
+        <content></content>
+      </paper-dialog>
+    </template>
+    <iron-media-query query="max-width: [[responsiveWidth]]"
+      query-matches="{{narrow}}">
+    </iron-media-query>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'paper-narrow-fullscreen-dialog',
+
+      properties: {
+        responsiveWidth: {
+          type: String,
+          value: '600px'
+        },
+        narrow: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        },
+        opened: {
+          type: Boolean,
+          value: false
+        },
+        entryAnimation: String,
+        exitAnimation: String,
+        narrowEntryAnimation: String,
+        narrowExitAnimation: String
+      },
+
+      open: function() {
+        this.opened = true;
+      },
+
+      close: function() {
+        this.opened = false;
+      },
+
+      toggle: function() {
+        this.opened = !this.opened;
+      }    
+    });
+  </script>
+</dom-module>
