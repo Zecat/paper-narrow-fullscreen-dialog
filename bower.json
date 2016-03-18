@@ -1,10 +1,10 @@
 {
   "name": "paper-narrow-fullscreen-dialog",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "Zecat <jullienfelix@gmail.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "Display your dialog in fullscreen mode on narrow layout, according to material spec.",
   "keywords": [
     "web-component",
     "polymer",
@@ -12,7 +12,7 @@
   ],
   "main": "paper-narrow-fullscreen-dialog.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "homepage": "https://github.com/Zecat>/paper-narrow-fullscreen-dialog/",
   "ignore": [
     "/.*",
     "/test/"

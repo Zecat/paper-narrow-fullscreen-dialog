@@ -7,5 +7,5 @@ Display your dialog in fullscreen mode for narrow layout, according to [material
 ## Installation
 
 ```
-	bower install --save paper-narrow-fullscreen-dialog
+	bower install --save Zecat/paper-narrow-fullscreen-dialog
 ```
